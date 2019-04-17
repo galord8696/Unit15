@@ -37,6 +37,14 @@ public class Block implements Locatable {
         color = Color.GREEN;
     }
     
+    public Block(int x, int y) {
+        xPos = x;
+        yPos = y;
+        width = 1;
+        height = 1;
+        color = Color.GREEN;
+    }
+    
     public Block() {
         xPos = 0;
         yPos = 0;
