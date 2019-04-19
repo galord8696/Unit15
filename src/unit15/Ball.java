@@ -42,11 +42,9 @@ public class Ball extends Block {
     }
 	//add the other Ball constructors	
 
-   //add the set methods
-    
-    
+    //add the set methods
     public void moveAndDraw(Graphics window) {
-   	//draw a white ball at old ball location
+        //draw a white ball at old ball location
         draw(window, Color.WHITE);
         setX(getX() + getxSpeed());
         setY(getY() + getySpeed());
@@ -57,13 +55,12 @@ public class Ball extends Block {
     }
 
     public boolean equals(Object obj) {
-        Ball ob = (Ball)obj;
+        Ball ob = (Ball) obj;
         return super.equals(ob) && this.getySpeed() == ob.getySpeed() && this.getxSpeed() == ob.getxSpeed();
     }
 
-   //add the get methods
-   //add a toString() method
-
+    //add the get methods
+    //add a toString() method
     /**
      * @return the xSpeed
      */
@@ -85,9 +82,27 @@ public class Ball extends Block {
         return ySpeed;
     }
 
+    public void collideLeft(Block pad) {
+
+        if((getX()<=(pad.getX()+pad.getWidth())) && (getY() >= pad.getY() && getY() <= (pad.getY()+pad.getHeight()))){
+                this.ySpeed *= -1;
+            } else {
+                this.xSpeed *= -1;
+            }
+    }
+    
+    public void collideRight(Block pad) {
+        if(((getX() + getWidth())>=(pad.getX()+pad.getWidth())) && (getY() >= pad.getY() && getY() <= (pad.getY()+pad.getHeight()))){
+                this.ySpeed *= -1;
+            } else {
+                this.xSpeed *= -1;
+            }
+    }
+
     /**
      * @param ySpeed the ySpeed to set
      */
+
     public void setySpeed(int ySpeed) {
         this.ySpeed = ySpeed;
     }

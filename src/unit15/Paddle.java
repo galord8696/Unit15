@@ -48,21 +48,32 @@ public class Paddle extends Block {
 
     //add the other Paddle constructors
     public void moveUpAndDraw(Graphics window) {
-        draw(window, Color.WHITE);
-        setY(getY() + getSpeed());
+        if (getY() >= 5){
+            draw(window, Color.WHITE);
+            setY(getY() - getSpeed());
 		//setY
 
-        //draw the ball at its new location
-        draw(window);
+            //draw the ball at its new location
+            draw(window);
+        }
+        else{
+                    moveDownAndDraw(window);
+        }
     }
 
     public void moveDownAndDraw(Graphics window) {
-        draw(window, Color.WHITE);
-        setY(getY() - getSpeed());
+        if (getY() <= 475){
+            draw(window, Color.WHITE);
+            setY(getY() + getSpeed());
 		//setY
 
-        //draw the ball at its new location
-        draw(window);
+            //draw the ball at its new location
+            draw(window);
+        }
+        else{
+                    moveUpAndDraw(window);
+                }
+        
     }
 
    //add get methods
